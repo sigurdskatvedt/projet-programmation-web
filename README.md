@@ -4,7 +4,7 @@
 
 Project for ENSG course Programmation Web.
 
-Initial project skeleton from with-docker example (https://github.com/vercel/next.js/tree/canary/examples/with-docker)\
+Initial project skeleton from with-docker example (https://github.com/vercel/next.js/tree/canary/examples/with-docker) \
 API based on tutorial from https://vercel.com/guides/nextjs-prisma-postgres
 
 ### Technologies used
