@@ -9,14 +9,6 @@ services:
       - "5432:5432"
     volumes:
       - db:/var/lib/postgresql/data
-  app:
-    image: node:16-alpine
-    command: sh -c "yarn install && yarn run dev"
-    ports:
-      - 3000:3000
-    working_dir: /projet-programmation-web
-    volumes:
-      - ./:/projet-programmation-web
 volumes:
   db:
     driver: local
