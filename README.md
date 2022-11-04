@@ -4,6 +4,8 @@
 
 Project for ENSG course Programmation Web.
 
+Using new React 18 Server Components and Next.js 13s new routing paradigm 
+
 Initial project skeleton from with-docker example (https://github.com/vercel/next.js/tree/canary/examples/with-docker) \
 API based on tutorial from https://vercel.com/guides/nextjs-prisma-postgres
 
