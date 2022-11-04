@@ -13,7 +13,7 @@ API based on tutorial from https://vercel.com/guides/nextjs-prisma-postgres
 - Yarn as package manager
 - GitHub as git provider
 - Next.js as the React framework
-- Next.js API routes for server-side API routes as the backend
+- GraphQL API with GraphQL Code Genereator as schema builder
 - Prisma as the ORM for migrations and database access
 - PostgreSQL as the database with PostGIS extension for map-related queries
 - NextAuth.js for authentication via GitHub (OAuth)
