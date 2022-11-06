@@ -22,3 +22,8 @@ API based on tutorial from https://vercel.com/guides/nextjs-prisma-postgres
 - TypeScript as the programming language
 - Vercel for deployment
 - Leaflet for client-side map rendering
+
+### API
+- Prisma will generate types based off of your database schema.
+- Pothos will use those types to expose GraphQL types via an API.
+- GraphQL Codegen will read your GraphQL schema and generate types for your frontend codebase representing what is available via the API and how to interact with it.
