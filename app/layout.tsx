@@ -1,8 +1,9 @@
-import "./globals.css";
+import "../styles/globals.css";
 import { graphql } from "../gql";
 import { graphqlClient } from "../lib/graphql-client";
 import UserDisplay from "../components/UserDisplay";
 import Link from "next/link";
+import "leaflet/dist/leaflet.css";
 
 const GetAllUsersDocument = graphql(/* GraphQL */ `
   query GetUsers {
@@ -25,12 +26,7 @@ export default async function RootLayout({
   return (
     <html>
       <head></head>
-      <body>
-        {users.map((user, i) => (
-          <UserDisplay user={user} key={i} />
-        ))}
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

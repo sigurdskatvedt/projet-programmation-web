@@ -1,8 +1,18 @@
 import Head from "next/head";
-import prisma from "../lib/prisma";
-import { createServer } from "@graphql-yoga/node";
-import { schema } from "../graphql/schema";
+
+import Map from "../components/Map";
+const DEFAULT_CENTER = [38.907132, -77.036546];
 
 export default function Home() {
-  return <h1>Hello World</h1>;
+  return (
+    <div>
+      <Head>
+        <title>Create Next App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="h-auto">
+        <Map />
+      </div>
+    </div>
+  );
 }

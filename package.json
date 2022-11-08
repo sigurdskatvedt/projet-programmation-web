@@ -19,14 +19,17 @@
     "@types/graphql": "^14.5.0",
     "@types/node": "^18.11.9",
     "@types/react-dom": "^18.0.8",
+    "encoding": "^0.1.13",
     "eslint-config-next": "^13.0.1",
     "grafbase": "^0.11.0",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
     "graphql-scalars": "^1.20.0",
+    "leaflet": "^1.9.2",
     "next": "^13.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-leaflet": "^4.1.0",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
@@ -35,7 +38,10 @@
     "@graphql-codegen/typescript": "^2.8.1",
     "@graphql-codegen/typescript-resolvers": "2.7.6",
     "@types/react": "^18.0.24",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.18",
     "prisma": "^4.5.0",
+    "tailwindcss": "^3.2.2",
     "typescript": "4.8.4"
   }
 }
