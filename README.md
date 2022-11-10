@@ -38,3 +38,4 @@ API based on tutorial from https://vercel.com/guides/nextjs-prisma-postgres
 place of Italy in Paris, which will give the code 1861 to be filled and that corresponds to the unification of Italy.
 - Then there's gonna be an easy French restaurant in the "Marais" with no required object nor code. 
 - Other restaurants will come, but that list is the very minimum for our game to be accepted. 
+- To get the score, the idea is to have a decreasing score with time that is reinitialized every time the player gets an object in his inventory. As every player will eventually have the same amount of objects, their score will only depend on their speed to complete the game. 
