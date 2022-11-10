@@ -4,11 +4,11 @@
       {
         "type": "Feature",
         "properties": {
-          "id"=1
-          "name": "Shinko"
-          "lvl_zoom": 5
-          "type_object": "requires_object"
-          "file_name": "shinko.jpg"
+          "id":1,
+          "name": "Shinko",
+          "lvl_zoom": 5,
+          "type_object": "requires_object",
+          "file_name": "shinko.jpg",
           "hint": "Ce restaurant requiert une lettre de recommendation, qui se trouve sur la tour Montparnasse"
      
         },
@@ -24,11 +24,11 @@
       {
         "type": "Feature",
         "properties": {
-            "id"=2
-            "name": "Tour Montparnasse"
-            "lvl_zoom": 10
-            "type_object": "required_object"
-            "file_name": "letter.jpg"
+            "id":2,
+            "name": "Tour Montparnasse",
+            "lvl_zoom": 10,
+            "type_object": "required_object",
+            "file_name": "letter.jpg",
             "hint": ""
        
           },
@@ -43,11 +43,11 @@
       {
         "type": "Feature",
         "properties": {
-            "id"=3
-            "name": "The Village Terrazza"
-            "lvl_zoom": 5
-            "type_object": "requires_code"
-            "file_name": "village.jpg"
+            "id":3,
+            "name": "The Village Terrazza",
+            "lvl_zoom": 5,
+            "type_object": "requires_code",
+            "file_name": "village.jpg",
             "hint": "Ce restaurant requiert un code, situé sur une la place du pays du restaurant"
        
           },
@@ -62,11 +62,11 @@
       {
         "type": "Feature",
         "properties": {
-            "id"=4
-            "name": "Place d'Italie"
-            "lvl_zoom": 10
-            "type_object": "code"
-            "file_name": "place.jpg"
+            "id":4,
+            "name": "Place d'Italie",
+            "lvl_zoom": 10,
+            "type_object": "code",
+            "file_name": "place.jpg",
             "hint": "1861"
        
           },
@@ -81,11 +81,11 @@
       {
         "type": "Feature",
         "properties": {
-            "id"=5
-            "name": "Au Petit Fer à Cheval"
-            "lvl_zoom": 8
-            "type_object": "object"
-            "file_name": "cheval.jpg"
+            "id":5,
+            "name": "Au Petit Fer à Cheval",
+            "lvl_zoom": 8,
+            "type_object": "object",
+            "file_name": "cheval.jpg",
             "hint": ""
        
           },
