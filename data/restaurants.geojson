@@ -1,0 +1,101 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "id"=1
+          "name": "Shinko"
+          "lvl_zoom": 5
+          "type_object": "requires_object"
+          "file_name": "shinko.jpg"
+          "hint": "Ce restaurant requiert une lettre de recommendation, qui se trouve sur la tour Montparnasse"
+     
+        },
+        "geometry": {
+          "coordinates": [
+            2.3262150937103456,
+            48.871552455782506
+          ],
+          "type": "Point"
+          
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            "id"=2
+            "name": "Tour Montparnasse"
+            "lvl_zoom": 10
+            "type_object": "required_object"
+            "file_name": "letter.jpg"
+            "hint": ""
+       
+          },
+        "geometry": {
+          "coordinates": [
+            2.3219922799949586,
+            48.84211498289338
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            "id"=3
+            "name": "The Village Terrazza"
+            "lvl_zoom": 5
+            "type_object": "requires_code"
+            "file_name": "village.jpg"
+            "hint": "Ce restaurant requiert un code, situé sur une la place du pays du restaurant"
+       
+          },
+        "geometry": {
+          "coordinates": [
+            2.322890693363206,
+            48.829826527676374
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            "id"=4
+            "name": "Place d'Italie"
+            "lvl_zoom": 10
+            "type_object": "code"
+            "file_name": "place.jpg"
+            "hint": "1861"
+       
+          },
+        "geometry": {
+          "coordinates": [
+            2.355741812022643,
+            48.83130870935625
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            "id"=5
+            "name": "Au Petit Fer à Cheval"
+            "lvl_zoom": 8
+            "type_object": "object"
+            "file_name": "cheval.jpg"
+            "hint": ""
+       
+          },
+        "geometry": {
+          "coordinates": [
+            2.3576093310148565,
+            48.85742452831258
+          ],
+          "type": "Point"
+        }
+      }
+    ]
+  }
