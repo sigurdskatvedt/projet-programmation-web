@@ -2,6 +2,10 @@
 import { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
+// import { useRecoilValue } from "recoil";
+import { Geodata } from "../types/types";
+// import { locationState } from "../atoms/atoms";
+import { LatLngExpression } from "leaflet";
 
 export function ChangeView({ coords }) {
   const map = useMap();
@@ -10,9 +14,12 @@ export function ChangeView({ coords }) {
 }
 
 export default function Map() {
+  // const geoData: Geodata = useRecoilValue(locationState);
+
+  // const center: LatLngExpression = [geoData.lat, geoData.lng];
   const [geoData, setGeoData] = useState({ lat: 64.536634, lng: 16.779852 });
 
-  const center = [geoData.lat, geoData.lng];
+  const center: LatLngExpression = [geoData.lat, geoData.lng];
 
   return (
     <MapContainer center={center} zoom={12} className="h-screen">
@@ -23,7 +30,6 @@ export default function Map() {
       {geoData.lat && geoData.lng && (
         <Marker position={[geoData.lat, geoData.lng]} />
       )}
-      <ChangeView coords={center} />
     </MapContainer>
   );
 }

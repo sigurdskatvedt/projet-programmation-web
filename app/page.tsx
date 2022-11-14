@@ -1,7 +1,7 @@
 import Head from "next/head";
+// import { atom, useRecoilState } from "recoil";
 
 import Map from "../components/Map";
-const DEFAULT_CENTER = [38.907132, -77.036546];
 
 export default function Home() {
   return (

@@ -4,6 +4,7 @@ import { graphqlClient } from "../lib/graphql-client";
 import UserDisplay from "../components/UserDisplay";
 import Link from "next/link";
 import "leaflet/dist/leaflet.css";
+import { RecoilRoot } from "recoil";
 
 const GetAllUsersDocument = graphql(/* GraphQL */ `
   query GetUsers {
@@ -26,7 +27,7 @@ export default async function RootLayout({
   return (
     <html>
       <head></head>
-      <body>{children}</body>
+      <body>{<RecoilRoot>{children}</RecoilRoot>}</body>
     </html>
   );
 }
