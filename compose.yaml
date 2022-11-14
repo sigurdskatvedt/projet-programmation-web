@@ -1,4 +1,14 @@
 services:
+  db:
+    image: postgis/postgis:14-3.3
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
   app:
     image: node:16-alpine
     command: sh -c "yarn install && yarn run dev"
@@ -7,3 +17,6 @@ services:
     working_dir: /projet-programmation-web
     volumes:
       - ./:/projet-programmation-web
+volumes:
+  db:
+    driver: local

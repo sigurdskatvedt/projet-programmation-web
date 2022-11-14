@@ -1,0 +1,2 @@
+PG:"dbname='databasename' host='addr' port='5432' user='x' password='y'"
+ogr2ogr -f "PostgreSQL" PG:"dbname=postgres host=localhost port=5432 user=postgres password=postgres"  -nlt GEOMETRY "data/restaurants.geojson" -nln restaurants
