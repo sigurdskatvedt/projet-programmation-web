@@ -1,22 +1,15 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-
 generator client {
   provider = "prisma-client-js"
-}
-
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 generator pothos {
   provider = "prisma-pothos-types"
 }
 
-// dummy schema from tutorial
-// prisma/schema.prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
 
 model User {
   id        Int       @id @default(autoincrement())
@@ -27,8 +20,19 @@ model User {
 
 model Message {
   id        Int      @id @default(autoincrement())
-  body   String
+  body      String
   createdAt DateTime @default(now())
   userId    Int
   user      User     @relation(fields: [userId], references: [id])
+}
+
+model restaurant {
+  ogc_fid      Int     @id @default(autoincrement())
+  wkb_geometry Bytes?
+  id           Int?
+  name         String? @db.VarChar
+  lvl_zoom     Int?
+  type_object  String? @db.VarChar
+  file_name    String? @db.VarChar
+  hint         String? @db.VarChar
 }

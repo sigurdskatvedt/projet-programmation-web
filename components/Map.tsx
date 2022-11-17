@@ -12,7 +12,7 @@ export function ChangeView({ coords }) {
 export default function Map() {
   const [geoData, setGeoData] = useState({ lat: 64.536634, lng: 16.779852 });
 
-  const center = [geoData.lat, geoData.lng];
+  const center: [number, number] = [geoData.lat, geoData.lng];
 
   return (
     <MapContainer center={center} zoom={12} className="h-screen">

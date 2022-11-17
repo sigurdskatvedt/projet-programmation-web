@@ -4,9 +4,11 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
 
 const documents = {
     "\n  query GetUsers {\n    users {\n      name\n      messages {\n        body\n      }\n    }\n  }\n": types.GetUsersDocument,
+    "\n  query GetMarkers {\n    restaurant {\n      name\n    }\n  }\n": types.GetMarkersDocument,
 };
 
 export function graphql(source: "\n  query GetUsers {\n    users {\n      name\n      messages {\n        body\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetUsers {\n    users {\n      name\n      messages {\n        body\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  query GetMarkers {\n    restaurant {\n      name\n    }\n  }\n"): (typeof documents)["\n  query GetMarkers {\n    restaurant {\n      name\n    }\n  }\n"];
 
 export function graphql(source: string): unknown;
 export function graphql(source: string) {
