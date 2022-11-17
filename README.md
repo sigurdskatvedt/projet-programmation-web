@@ -28,6 +28,24 @@ API based on tutorial from https://vercel.com/guides/nextjs-prisma-postgres
 - Pothos will use those types to expose GraphQL types via an API.
 - GraphQL Codegen will read your GraphQL schema and generate types for your frontend codebase representing what is available via the API and how to interact with it.
 
+#### Adding new element and query starting with database
+- Add to database
+- Update Prisma schema, prisma.schema (use command <em>prisma db pull</em>
+- Generate Prisma Client database (use command <em>prisma generate</em>
+- Build model of new object with queries in <em>/models.ts</em>
+- Import model in <em>/graphql/schema.ts</em>
+- Generate new document somewhere in the code, example:
+-  const GetAllUsersDocument = graphql(/* GraphQL */ `
+    query GetUsers {
+      users {
+        name
+        messages {
+          body
+        }
+      }
+    }
+  `);
+
 ### General idea of the game
 - All the following points are of course open to discussion.
 - The name of the game will be GeoResto.
