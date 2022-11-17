@@ -35,16 +35,18 @@ API based on tutorial from https://vercel.com/guides/nextjs-prisma-postgres
 - Build model of new object with queries in <em>/models.ts</em>
 - Import model in <em>/graphql/schema.ts</em>
 - Generate new document somewhere in the code, example:
-    const GetAllUsersDocument = graphql(/* GraphQL */ `
-        query GetUsers {
-          users {
-            name
-            messages {
-              body
-            }
-          }
+```
+const GetAllUsersDocument = graphql(/* GraphQL */ `
+    query GetUsers {
+      users {
+        name
+        messages {
+          body
         }
-        `);
+      }
+    }
+    `);
+```
 
 ### General idea of the game
 - All the following points are of course open to discussion.
