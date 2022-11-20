@@ -44,63 +44,28 @@ export type User = {
 
 export type Restaurant = {
   __typename?: "restaurant";
+  coordinates: Array<Scalars["Float"]>;
+  file_name: Scalars["String"];
+  hint: Scalars["String"];
   id: Scalars["ID"];
+  lvl_zoom: Scalars["Int"];
   name: Scalars["String"];
-};
-
-export type GetUsersQueryVariables = Exact<{ [key: string]: never }>;
-
-export type GetUsersQuery = {
-  __typename?: "Query";
-  users: Array<{
-    __typename?: "User";
-    name: string;
-    messages: Array<{ __typename?: "Message"; body: string }>;
-  }>;
+  type_object: Scalars["String"];
 };
 
 export type GetMarkersQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetMarkersQuery = {
   __typename?: "Query";
-  restaurant: Array<{ __typename?: "restaurant"; name: string }>;
+  restaurant: Array<{
+    __typename?: "restaurant";
+    name: string;
+    coordinates: Array<number>;
+    lvl_zoom: number;
+    hint: string;
+  }>;
 };
 
-export const GetUsersDocument = {
-  kind: "Document",
-  definitions: [
-    {
-      kind: "OperationDefinition",
-      operation: "query",
-      name: { kind: "Name", value: "GetUsers" },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "users" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                { kind: "Field", name: { kind: "Name", value: "name" } },
-                {
-                  kind: "Field",
-                  name: { kind: "Name", value: "messages" },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      { kind: "Field", name: { kind: "Name", value: "body" } },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<GetUsersQuery, GetUsersQueryVariables>;
 export const GetMarkersDocument = {
   kind: "Document",
   definitions: [
@@ -118,6 +83,9 @@ export const GetMarkersDocument = {
               kind: "SelectionSet",
               selections: [
                 { kind: "Field", name: { kind: "Name", value: "name" } },
+                { kind: "Field", name: { kind: "Name", value: "coordinates" } },
+                { kind: "Field", name: { kind: "Name", value: "lvl_zoom" } },
+                { kind: "Field", name: { kind: "Name", value: "hint" } },
               ],
             },
           },

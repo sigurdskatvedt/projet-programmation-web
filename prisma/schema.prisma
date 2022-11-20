@@ -27,12 +27,12 @@ model Message {
 }
 
 model restaurant {
-  ogc_fid      Int     @id @default(autoincrement())
+  id           Int     @id @default(autoincrement())
   wkb_geometry Bytes?
-  id           Int?
   name         String? @db.VarChar
   lvl_zoom     Int?
   type_object  String? @db.VarChar
   file_name    String? @db.VarChar
   hint         String? @db.VarChar
+  coordinates  Float[]
 }
