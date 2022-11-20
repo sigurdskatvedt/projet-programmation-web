@@ -4,7 +4,7 @@
     "dev": "next dev",
     "build": "yarn install & yarn prisma generate & next build",
     "backend": "npm run codegen",
-    "codegen": "graphql-codegen --watch -r dotenv/config"
+    "codegen": "graphql-codegen -r dotenv/config"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
