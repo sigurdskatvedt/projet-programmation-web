@@ -6,6 +6,7 @@ import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 export function ChangeView({ coords }) {
   const map = useMap();
   map.setView(coords, 12);
+  map.invalidateSize()
   return null;
 }
 
