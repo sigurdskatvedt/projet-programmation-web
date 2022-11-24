@@ -1,0 +1,127 @@
+@import url(https://fonts.bunny.net/css?family=jost:500);
+
+.top {
+    height : 15vh;
+    width: 100vw;
+    background-color : rgb(121, 102, 239);
+    font-size: 200px;
+    display: grid; 
+    grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
+    grid-template-rows: 5vh 5vh 5vh;
+    border: solid 1px black;
+
+}
+
+.bottom {
+    display: grid;
+    grid-template-columns: 12vw 12vw 12vw 20vw 24vw 15vw 5vw;
+    grid-template-rows: 6vh 6vh;
+    width: 100vw;
+    background-color: rgb(141, 140, 199);
+    height: 15vh;
+    border: solid 1px black;
+}
+
+
+.squar {
+    background-color: rgb(219, 240, 241);
+    width: 85px;
+    height: 85px;
+    border: solid 2px rgb(4, 70, 21);
+    margin: 10px;
+}
+
+.rectangle#rectangle10 {
+    grid-column: 6;
+    grid-row: 2;
+}
+
+.username {
+    grid-column: 6;
+    font-family: 'Jost', sans-serif;
+    font-size:150%;
+    color: rgb(0, 0, 0);
+    height: 6vh;
+    grid-row: 1;
+}
+
+.okk {
+    grid-column: 7;
+    font-size:150%;
+}
+
+.h-screen {
+    width: 100wh;
+    height: 70vh;
+} 
+
+.score {
+    grid-column: 4;
+    font-family: 'Jost', sans-serif;
+    font-size:350%;
+    color: aliceblue;
+    
+    text-shadow: 2px 0 rgb(0, 0, 0);
+}
+
+.georesto {
+    font-family: 'Jost', sans-serif;
+    font-size:40%;
+    color: aliceblue;
+    
+    text-shadow: 2px 0 rgb(0, 0, 0);
+}
+
+.rectangle {
+    background-color: rgb(219, 240, 241);
+    width: 15wh;
+    height: 4vh;
+    margin: 2px;
+    border: solid 1px black;
+}
+
+.rectangle#rectangle1 {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.rectangle#rectangle2 {
+    grid-column: 4;
+    grid-row: 1;
+}
+
+.rectangle#rectangle3 {
+    grid-column: 5;
+    grid-row: 1;
+}
+
+.rectangle#rectangle4 {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.rectangle#rectangle5 {
+    grid-column: 4;
+    grid-row: 2;
+}
+
+.rectangle#rectangle6 {
+    grid-column: 5;
+    grid-row: 2;
+}
+
+.rectangle#rectangle7 {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.rectangle#rectangle8 {
+    grid-column: 4;
+    grid-row: 3;
+}
+
+.rectangle#rectangle9 {
+    grid-column: 5;
+    grid-row: 3;
+}
+
