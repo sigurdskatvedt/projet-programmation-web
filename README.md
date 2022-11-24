@@ -13,7 +13,7 @@ API based on tutorial from https://vercel.com/guides/nextjs-prisma-postgres
 - Yarn as package manager
 - GitHub as git provider
 - Next.js as the React framework (Using Next.js 13 beta so syntax and code structure [will be slightly different than older version of Next.js)](https://nextjs.org/blog/next-13)
-- GraphQL API with Pothos as schema builder, GraphQL Codegen for type safety
+- GraphQL API with GraphQL Yoga as server, Pothos as schema builder, GraphQL Codegen for type safety
 - Prisma as the ORM for migrations and database access
 - PostgreSQL as the database
 - TypeScript as the programming language
