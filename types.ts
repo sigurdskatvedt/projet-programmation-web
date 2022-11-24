@@ -19,6 +19,13 @@ export type User = {
   messages: Message[];
 };
 
+export type Restaurant = {
+  name: string;
+  lvl_zoom: number;
+  hint: string;
+  coordinates: number[];
+};
+
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;

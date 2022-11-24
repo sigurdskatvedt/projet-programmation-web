@@ -1,9 +1,22 @@
 import Head from "next/head";
 
 import Map from "../components/Map";
-const DEFAULT_CENTER = [38.907132, -77.036546];
+import { graphql } from "../gql";
+import { graphqlClient } from "../lib/graphql-client";
 
-export default function Home() {
+const GetAllMarkersDocument = graphql(`
+  query GetMarkers {
+    restaurant {
+      name
+      coordinates
+      lvl_zoom
+      hint
+    }
+  }
+`);
+
+export default async function Home() {
+  const { restaurant } = await graphqlClient.request(GetAllMarkersDocument);
   return (
     <div>
       <Head>
@@ -11,7 +24,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="h-auto">
-        <Map />
+        <Map restaurant={restaurant} />
       </div>
     </div>
   );
