@@ -6,15 +6,31 @@
     background-color : rgb(121, 102, 239);
     font-size: 200px;
     display: grid; 
-    grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
+    grid-template-columns: 32vw 20vw 16vw 16vw 16vw;
     grid-template-rows: 5vh 5vh 5vh;
     border: solid 1px black;
 
 }
 
+.bestp {
+    grid-row: 3;
+    grid-column: 2;
+    font-size:8%;
+    font-family: 'Jost', sans-serif;
+    align-self: center;
+}
+
+.crownn {
+    grid-column: 2;
+    grid-row: 1;
+    width: 5vw;
+    height: auto;
+}
+
+
 .bottom {
     display: grid;
-    grid-template-columns: 12vw 12vw 12vw 20vw 24vw 15vw 5vw;
+    grid-template-columns: 8vw  8vw 8vw 8vw 20vw 24vw 10vw 5vw;
     grid-template-rows: 6vh 6vh;
     width: 100vw;
     background-color: rgb(141, 140, 199);
@@ -32,22 +48,39 @@
 }
 
 .rectangle#rectangle10 {
-    grid-column: 6;
+    grid-column: 7;
     grid-row: 2;
+    width: 15vw;
 }
 
 .username {
-    grid-column: 6;
+    grid-column: 7;
     font-family: 'Jost', sans-serif;
-    font-size:150%;
+    font-size:120%;
     color: rgb(0, 0, 0);
     height: 6vh;
     grid-row: 1;
+    align-self: center;
 }
 
 .okk {
-    grid-column: 7;
-    font-size:150%;
+    grid-column: 8;
+
+
+    background-color: #141414;
+    border: 1px solid rgba(54, 54, 54, 0.6);
+    font-weight: 600;
+    position: relative;
+    outline: none;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    cursor: pointer;
+    height: 25px;
+    width: 70px;
+    opacity: 1;
+    color: white;
 }
 
 .h-screen {
@@ -56,11 +89,11 @@
 } 
 
 .score {
-    grid-column: 4;
+    grid-column: 5;
     font-family: 'Jost', sans-serif;
     font-size:350%;
     color: aliceblue;
-    
+    justify-self: center;
     text-shadow: 2px 0 rgb(0, 0, 0);
 }
 
@@ -74,10 +107,14 @@
 
 .rectangle {
     background-color: rgb(219, 240, 241);
-    width: 15wh;
+    width: 13vw;
     height: 4vh;
     margin: 2px;
     border: solid 1px black;
+    justify-content: center;
+    align-content: center;
+
+
 }
 
 .rectangle#rectangle1 {

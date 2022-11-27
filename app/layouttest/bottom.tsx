@@ -11,10 +11,11 @@ export default function BottComp() {
         <Square idNumber={"square1"}/>
         <Square idNumber={"square2"}/>
         <Square idNumber={"square3"}/>
+        <Square idNumber={"square4"}/>
         <Score />
         
         <Username />
-    
+        <ButtonOk />
         <Rectang idNumber={"rectangle10"}/>
         </div>
     )
