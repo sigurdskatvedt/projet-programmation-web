@@ -1,3 +1,4 @@
+// Setup to debug Next.js server
 {
   "version": "0.2.0",
   "configurations": [
