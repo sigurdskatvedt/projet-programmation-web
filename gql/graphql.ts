@@ -22,28 +22,13 @@ export type Scalars = {
   Date: any;
 };
 
-export type Message = {
-  __typename?: "Message";
-  body: Scalars["String"];
-  createdAt: Scalars["Date"];
-  id: Scalars["ID"];
-};
-
 export type Query = {
   __typename?: "Query";
-  restaurant: Array<Restaurant>;
-  users: Array<User>;
+  restaurants: Array<Restaurants>;
 };
 
-export type User = {
-  __typename?: "User";
-  id: Scalars["ID"];
-  messages: Array<Message>;
-  name: Scalars["String"];
-};
-
-export type Restaurant = {
-  __typename?: "restaurant";
+export type Restaurants = {
+  __typename?: "restaurants";
   coordinates: Array<Scalars["Float"]>;
   file_name: Scalars["String"];
   hint: Scalars["String"];
@@ -57,8 +42,8 @@ export type GetMarkersQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetMarkersQuery = {
   __typename?: "Query";
-  restaurant: Array<{
-    __typename?: "restaurant";
+  restaurants: Array<{
+    __typename?: "restaurants";
     name: string;
     coordinates: Array<number>;
     lvl_zoom: number;
@@ -78,7 +63,7 @@ export const GetMarkersDocument = {
         selections: [
           {
             kind: "Field",
-            name: { kind: "Name", value: "restaurant" },
+            name: { kind: "Name", value: "restaurants" },
             selectionSet: {
               kind: "SelectionSet",
               selections: [

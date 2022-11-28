@@ -14,9 +14,13 @@ import { Restaurant } from "../types";
 export function ChangeView({ coords }) {
   const map = useMap();
   map.setView(coords, 12);
-  map.invalidateSize()
+  map.invalidateSize();
   return null;
 }
+
+type Props = {
+  restaurant: Restaurant;
+};
 
 export default function Map({ restaurant }) {
   const restaurantObject = restaurant as Restaurant[];

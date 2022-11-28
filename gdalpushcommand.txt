@@ -1,2 +1,5 @@
 PG:"dbname='databasename' host='addr' port='5432' user='x' password='y'"
+LOCAL:
 ogr2ogr -f "PostgreSQL" PG:"dbname=postgres host=localhost port=5432 user=postgres password=postgres" "data/Restaurant.geojson"
+DOCKER(after compose up):
+docker run --net=host --rm -v /Users/sigurdskatvedt/projet-programmation-web/data:/data osgeo/gdal:ubuntu-full-3.4.1 ogr2ogr -f "PostgreSQL" PG:"dbname=postgres host=localhost port=5438 user=postgres password=postgres" data/restaurants.geojson

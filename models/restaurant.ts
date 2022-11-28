@@ -3,7 +3,7 @@
 import { builder } from "../graphql/builder";
 import { prisma } from "../graphql/db";
 
-builder.prismaObject("restaurant", {
+builder.prismaObject("restaurants", {
   fields: (t) => ({
     id: t.exposeID("id"),
     name: t.exposeString("name"),
@@ -15,14 +15,14 @@ builder.prismaObject("restaurant", {
   }),
 });
 
-builder.queryField("restaurant", (t) =>
+builder.queryField("restaurants", (t) =>
   // 2
   t.prismaField({
     // 3
-    type: ["restaurant"],
+    type: ["restaurants"],
     // 4
     resolve: async (query, root, args, ctx, info) => {
-      return prisma.restaurant.findMany({ ...query });
+      return prisma.restaurants.findMany({ ...query });
     },
   })
 );
