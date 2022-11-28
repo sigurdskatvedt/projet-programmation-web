@@ -18,6 +18,10 @@ export function ChangeView({ coords }) {
   return null;
 }
 
+type Props = {
+  restaurant: Restaurant;
+};
+
 export default function Map({ restaurant }) {
   const restaurantObject = restaurant as Restaurant[];
 

@@ -1,15 +1,16 @@
 import Head from "next/head";
-import BottComp from "../components/bottom";
+import BottComp from "../components/main_ui/bottom";
 
 import Map from "../components/Map";
-import TopComp from "../components/top";
+import TopComp from "../components/main_ui/top";
 import { graphql } from "../gql";
 import { graphqlClient } from "../lib/graphql-client";
 import "../styles/layout.css";
 
+// Will be read when using "codegen"-command, will generate new query (or mutation) document in /gql/gql.ts
 const GetAllMarkersDocument = graphql(`
   query GetMarkers {
-    restaurant {
+    restaurants {
       name
       coordinates
       lvl_zoom
@@ -19,7 +20,8 @@ const GetAllMarkersDocument = graphql(`
 `);
 
 export default async function Home() {
-  const { restaurant } = await graphqlClient.request(GetAllMarkersDocument);
+  // Execute GraphQL API request
+  const { restaurants } = await graphqlClient.request(GetAllMarkersDocument);
   return (
     <div>
       <Head>
@@ -28,7 +30,7 @@ export default async function Home() {
       </Head>
       <div className="h-auto">
         <TopComp />
-        <Map restaurant={restaurant} />
+        <Map restaurant={restaurants} />
         <BottComp />
       </div>
     </div>
