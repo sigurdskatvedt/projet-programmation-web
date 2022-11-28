@@ -4,8 +4,6 @@
 
 Project for ENSG course Programmation Web.
 
-Using new React 18 Server Components and Next.js 13s new routing paradigm 
-
 Initial project skeleton from with-docker example (https://github.com/vercel/next.js/tree/canary/examples/with-docker) \
 API based on tutorial from https://vercel.com/guides/nextjs-prisma-postgres
 
@@ -14,19 +12,37 @@ API based on tutorial from https://vercel.com/guides/nextjs-prisma-postgres
 - Docker for intercompability
 - Yarn as package manager
 - GitHub as git provider
-- Next.js as the React framework
-- GraphQL API with GraphQL Code Genereator as schema builder
+- Next.js as the React framework (Using Next.js 13 beta so syntax and code structure [will be slightly different than older version of Next.js)](https://nextjs.org/blog/next-13)
+- GraphQL API with GraphQL Yoga as server, Pothos as schema builder, GraphQL Codegen for type safety
 - Prisma as the ORM for migrations and database access
-- PostgreSQL as the database with PostGIS extension for map-related queries
-- NextAuth.js for authentication via GitHub (OAuth)
+- PostgreSQL as the database
 - TypeScript as the programming language
-- Vercel for deployment
 - Leaflet for client-side map rendering
 
 ### API
 - Prisma will generate types based off of your database schema.
 - Pothos will use those types to expose GraphQL types via an API.
 - GraphQL Codegen will read your GraphQL schema and generate types for your frontend codebase representing what is available via the API and how to interact with it.
+
+#### Adding new element and query starting with database
+- Add to database
+- Update Prisma schema, prisma.schema (use command <em>prisma db pull</em>
+- Generate Prisma Client database (use command <em>prisma generate</em>
+- Build model of new object with queries in <em>/models.ts</em>
+- Import model in <em>/graphql/schema.ts</em>
+- Generate new document somewhere in the code, example:
+```
+const GetAllUsersDocument = graphql(/* GraphQL */ `
+    query GetUsers {
+      users {
+        name
+        messages {
+          body
+        }
+      }
+    }
+    `);
+```
 
 ### General idea of the game
 - All the following points are of course open to discussion.

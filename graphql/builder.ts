@@ -1,7 +1,7 @@
 // src/builder.ts
 
 import SchemaBuilder from "@pothos/core";
-import { DateResolver } from "graphql-scalars";
+import { DateResolver, ByteResolver } from "graphql-scalars";
 import PrismaPlugin from "@pothos/plugin-prisma";
 import type PrismaTypes from "@pothos/plugin-prisma/generated";
 import { prisma } from "./db";
@@ -20,4 +20,7 @@ export const builder = new SchemaBuilder<{
 });
 
 builder.addScalarType("Date", DateResolver, {});
+
+// Fix this:
+
 builder.queryType({});
