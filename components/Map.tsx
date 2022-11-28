@@ -14,7 +14,7 @@ import { Restaurant } from "../types";
 export function ChangeView({ coords }) {
   const map = useMap();
   map.setView(coords, 12);
-  map.invalidateSize()
+  map.invalidateSize();
   return null;
 }
 
