@@ -1,5 +1,17 @@
+USEFUL COMMANDS:
+
+PG connection string:
 PG:"dbname='databasename' host='addr' port='5432' user='x' password='y'"
+
+OGR2OGR push command:
 LOCAL:
 ogr2ogr -f "PostgreSQL" PG:"dbname=postgres host=localhost port=5432 user=postgres password=postgres" "data/Restaurant.geojson"
 DOCKER(after compose up):
 docker run --net=host --rm -v /Users/sigurdskatvedt/projet-programmation-web/data:/data osgeo/gdal:ubuntu-full-3.4.1 ogr2ogr -f "PostgreSQL" PG:"dbname=postgres host=localhost port=5438 user=postgres password=postgres" data/restaurants.geojson
+
+DB Dump command:
+docker run -it  -e PGPASSWORD=postgres postgres:14.6  pg_dump  -h host.docker.internal -p 5438 -U postgres postgres > ./data/dbdata.sql
+
+DB Restore command:
+IN TERMINAL: docker exec -i projet-programmation-web-db-1 /bin/bash -c "PGPASSWORD=postgres psql --username postgres postgres" < ./data/dbdata.sql
+IN DOCKER CLI: yarn prisma generate

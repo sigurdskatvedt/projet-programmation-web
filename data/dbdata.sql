@@ -27,6 +27,7 @@ SET default_table_access_method = heap;
 CREATE TABLE public.restaurants (
     id integer NOT NULL,
     wkb_geometry bytea,
+    image_id integer,
     name character varying,
     lvl_zoom integer,
     type_object character varying,
@@ -71,12 +72,12 @@ ALTER TABLE ONLY public.restaurants ALTER COLUMN id SET DEFAULT nextval('public.
 -- Data for Name: restaurants; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.restaurants (id, wkb_geometry, name, lvl_zoom, type_object, file_name, hint, coordinates) FROM stdin;
-1	\\x01010000008094b7a8169c0240cc2ae7078f6f4840	Shinko	5	requires_object	shinko.jpg	Ce restaurant requiert une lettre de recommendation, qui se trouve sur la tour Montparnasse	{2.326215093710346,48.87155245578251}
-2	\\x0101000000802441b070930240d47f7b6cca6b4840	Tour Montparnasse	10	required_object	letter.jpg		{2.321992279994959,48.84211498289338}
-3	\\x0101000000006c41b74795024094dc72c1376a4840	The Village Terrazza	5	requires_code	village.jpg	Ce restaurant requiert un code, situé sur une la place du pays du restaurant	{2.322890693363206,48.82982652767637}
-4	\\x010100000000a8c3298fd8024054c8e352686a4840	Place d'Italie	10	code	place.jpg	1861	{2.355741812022643,48.83130870935625}
-5	\\x010100000040a0eb4762dc024004f24116c06d4840	Au Petit Fer à Cheval	8	object	cheval.jpg		{2.357609331014856,48.85742452831258}
+COPY public.restaurants (id, wkb_geometry, image_id, name, lvl_zoom, type_object, file_name, hint, coordinates) FROM stdin;
+1	\\x01010000008094b7a8169c0240cc2ae7078f6f4840	1	Shinko	13	requires_object	shinko.jpg	Ce restaurant requiert une lettre de recommendation, qui se trouve sur la tour Montparnasse	{2.326215093710346,48.87155245578251}
+2	\\x0101000000802441b070930240d47f7b6cca6b4840	2	Tour Montparnasse	16	required_object	letter.jpg		{2.321992279994959,48.84211498289338}
+3	\\x0101000000006c41b74795024094dc72c1376a4840	3	The Village Terrazza	13	requires_code	village.jpg	Ce restaurant requiert un code, situé sur une la place du pays du restaurant	{2.322890693363206,48.82982652767637}
+4	\\x010100000000a8c3298fd8024054c8e352686a4840	4	Place d'Italie	16	code	place.jpg	1861	{2.355741812022643,48.83130870935625}
+5	\\x010100000040a0eb4762dc024004f24116c06d4840	5	Au Petit Fer à Cheval	14	object	cheval.jpg		{2.357609331014856,48.85742452831258}
 \.
 
 
