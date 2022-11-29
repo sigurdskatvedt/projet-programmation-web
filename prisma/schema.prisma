@@ -14,6 +14,7 @@ datasource db {
 model restaurants {
   id           Int     @id @default(autoincrement())
   wkb_geometry Bytes?
+  image_id     Int?
   name         String? @db.VarChar
   lvl_zoom     Int?
   type_object  String? @db.VarChar
