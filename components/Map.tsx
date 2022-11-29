@@ -22,7 +22,7 @@ export function ChangeView({ coords }) {
 const MarkerGR = L.Icon.extend({
   options: {
     iconSize: [100, 100],
-    iconAnchor: [0, 50],
+    iconAnchor: [0, 0],
     popupAnchor: [50, 50],
   },
 });
@@ -30,8 +30,8 @@ const MarkerGR = L.Icon.extend({
 const shinko = new MarkerGR({ iconUrl: "marker-icons/shinko.png" }),
   letter = new MarkerGR({ iconUrl: "marker-icons/letter.png" }),
   village = new MarkerGR({ iconUrl: "marker-icons/village_it.png" }),
-  place = new MarkerGR({ iconUrl: "marker-icons/place_it.png" }),
-  fercheval = new MarkerGR({ iconUrl: "marker-icons/fer_cheval.png" });
+  place = new MarkerGR({ iconUrl: "place_it.png" }),
+  fercheval = new MarkerGR({ iconUrl: "fer_cheval.png" });
 
 type Props = {
   restaurant: Restaurant;
@@ -54,12 +54,15 @@ export default function Map({ restaurant }) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {restaurantObject?.map((restaurant) => {
-        const restaurantName = restaurant.name;
+        let restaurantNameParse = restaurant.name.split(" ").join("_");
+        let iconObject = new MarkerGR({
+          iconUrl: "marker-icons/" + restaurantNameParse + ".png",
+        });
 
         return (
           <Marker
             position={[restaurant.coordinates[1], restaurant.coordinates[0]]}
-            icon={letter}
+            icon={iconObject}
           >
             <Popup>
               {restaurant.name}
