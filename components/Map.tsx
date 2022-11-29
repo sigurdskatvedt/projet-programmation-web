@@ -10,6 +10,7 @@ import {
   Popup,
 } from "react-leaflet";
 import { Restaurant } from "../types";
+import L from "leaflet";
 
 export function ChangeView({ coords }) {
   const map = useMap();
@@ -17,6 +18,20 @@ export function ChangeView({ coords }) {
   map.invalidateSize();
   return null;
 }
+
+const MarkerGR = L.Icon.extend({
+  options: {
+    iconSize: [100, 100],
+    iconAnchor: [0, 50],
+    popupAnchor: [50, 50],
+  },
+});
+
+const shinko = new MarkerGR({ iconUrl: "marker-icons/shinko.png" }),
+  letter = new MarkerGR({ iconUrl: "marker-icons/letter.png" }),
+  village = new MarkerGR({ iconUrl: "marker-icons/village_it.png" }),
+  place = new MarkerGR({ iconUrl: "marker-icons/place_it.png" }),
+  fercheval = new MarkerGR({ iconUrl: "marker-icons/fer_cheval.png" });
 
 type Props = {
   restaurant: Restaurant;
@@ -39,10 +54,12 @@ export default function Map({ restaurant }) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {restaurantObject?.map((restaurant) => {
-        console.log(restaurant);
+        const restaurantName = restaurant.name;
+
         return (
           <Marker
             position={[restaurant.coordinates[1], restaurant.coordinates[0]]}
+            icon={letter}
           >
             <Popup>
               {restaurant.name}
