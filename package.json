@@ -38,6 +38,7 @@
     "@graphql-codegen/typescript": "^2.8.1",
     "@graphql-codegen/typescript-resolvers": "2.7.6",
     "@types/react": "^18.0.24",
+    "@types/react-leaflet": "^2.8.2",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.18",
     "prisma": "^4.5.0",

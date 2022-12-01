@@ -1,22 +1,23 @@
-import "./layoutstyle.css"
-import Square from "./square"
-import Score from "./score"
-import Username from "./username"
-import Rectang from "./rect"
-import ButtonOk from "./button"
+import "./layoutstyle.css";
+import Square from "./square";
+import Score from "./score";
+import Username from "./username";
+import Rectang from "./rect";
+import ButtonOk from "./button";
 
 export default function BottComp() {
-    return (
-        <div className="bottom">
-        <Square idNumber={"square1"}/>
-        <Square idNumber={"square2"}/>
-        <Square idNumber={"square3"}/>
-        <Square idNumber={"square4"}/>
-        <Score />
-        
-        <Username />
-        <ButtonOk />
-        <Rectang idNumber={"rectangle10"}/>
-        </div>
-    )
+  const squareArray = [];
+  for (let i = 1; i <= 4; i++) {
+    squareArray.push(<Square idNumber={`square${i}`} key={i} />);
   }
+
+  return (
+    <div className="bottom">
+      {squareArray}
+      <Score />
+      <Username />
+      <ButtonOk />
+      <Rectang idNumber={"rectangle10"} />
+    </div>
+  );
+}
