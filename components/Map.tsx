@@ -49,37 +49,55 @@ export default function Map({ restaurant }) {
 
   const center: [number, number] = [geoData.lat, geoData.lng];
 
-
   function Markers(restaurant) {
-
     const [zoomLevel, setZoomLevel] = useState(5);
-    
-     const mapEvents = useMapEvents({
-        zoomend: () => {
-           setZoomLevel(mapEvents.getZoom());
-           console.log(zoomLevel);
-        },
-    }); 
+    const [pressed, setPressed] = useState(false);
 
-    return(restaurantObject?.map((restaurant) => {
+    function handleClick(e) {
+      e.preventDefault();
+      setPressed(true);
+    }
+
+    const mapEvents = useMapEvents({
+      zoomend: () => {
+        setZoomLevel(mapEvents.getZoom());
+        console.log(zoomLevel);
+      },
+    });
+
+    return restaurantObject?.map((restaurant) => {
       let restaurantNameParse = restaurant.name.split(" ").join("_");
       let iconObject = new MarkerGR({
         iconUrl: "marker-icons/" + restaurantNameParse + ".png",
       });
 
-    console.log(zoomLevel);
-    return       <>{ zoomLevel >= 16 ? 
-    <Marker
-      position={[restaurant.coordinates[1], restaurant.coordinates[0]]}
-      icon={iconObject}
-    >
-      <Popup>
-        {restaurant.name}
-        <br />
-        {restaurant.hint}
-      </Popup>
-    </Marker> : null }</>
-  }))};
+      console.log(zoomLevel);
+      return (
+        <>
+          (
+          {zoomLevel >= 16 ? (
+            pressed ? null : (
+              <Marker
+                position={[
+                  restaurant.coordinates[1],
+                  restaurant.coordinates[0],
+                ]}
+                icon={iconObject}
+              >
+                <Popup>
+                  {restaurant.name}
+                  <br />
+                  {restaurant.hint}
+                  <button onClick={handleClick}>OK</button>
+                </Popup>
+              </Marker>
+            )
+          ) : null}
+          )
+        </>
+      );
+    });
+  }
 
   return (
     <MapContainer center={center} zoom={12} className="h-screen">
@@ -87,13 +105,10 @@ export default function Map({ restaurant }) {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-       
 
       <Markers restaurant={restaurant} />
 
-      <ChangeView coords={center} /> 
-    
-
+      <ChangeView coords={center} />
     </MapContainer>
   );
-};
+}
