@@ -1,16 +1,22 @@
 "use client";
-import { useState, useEffect } from "react";
+import {
+  useState,
+  useEffect,
+  ForwardRefExoticComponent,
+  RefAttributes,
+} from "react";
 import "leaflet/dist/leaflet.css";
 import {
   MapContainer,
   TileLayer,
-  Marker,
   useMap,
   useMapEvent,
-  Popup,
+  MarkerProps,
 } from "react-leaflet";
 import { Restaurant } from "../types";
 import L from "leaflet";
+import { useStyleRegistry } from "styled-jsx";
+import { KeyNeeded } from "./markers/KeyNeeded";
 
 export function ChangeView({ coords }) {
   const map = useMap();
@@ -19,11 +25,11 @@ export function ChangeView({ coords }) {
   return null;
 }
 
-const MarkerGR = L.Icon.extend({
+export const MarkerGR = L.Icon.extend({
   options: {
     iconSize: [100, 100],
-    iconAnchor: [0, 0],
-    popupAnchor: [50, 50],
+    iconAnchor: [50, 50],
+    popupAnchor: [0, 0],
   },
 });
 
@@ -54,23 +60,7 @@ export default function Map({ restaurant }) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {restaurantObject?.map((restaurant) => {
-        let restaurantNameParse = restaurant.name.split(" ").join("_");
-        let iconObject = new MarkerGR({
-          iconUrl: "marker-icons/" + restaurantNameParse + ".png",
-        });
-
-        return (
-          <Marker
-            position={[restaurant.coordinates[1], restaurant.coordinates[0]]}
-            icon={iconObject}
-          >
-            <Popup>
-              {restaurant.name}
-              <br />
-              {restaurant.hint}
-            </Popup>
-          </Marker>
-        );
+        return KeyNeeded(restaurant);
       })}
 
       <ChangeView coords={center} />
