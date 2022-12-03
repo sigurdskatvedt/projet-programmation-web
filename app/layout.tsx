@@ -2,6 +2,7 @@
 // Since this is in the root of the pages directory it will be included in every page on the server (also applied to CSS imports)
 import "../styles/globals.css";
 import "leaflet/dist/leaflet.css";
+import { Providers } from "./providers";
 
 export default async function RootLayout({
   children,
@@ -11,7 +12,9 @@ export default async function RootLayout({
   return (
     <html>
       <head></head>
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

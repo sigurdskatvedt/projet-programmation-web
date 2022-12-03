@@ -1,16 +1,16 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "leaflet/dist/leaflet.css";
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  useMap,
-  useMapEvent,
-  Popup,
-} from "react-leaflet";
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import { Restaurant } from "../types";
-import L from "leaflet";
+import L, { Icon } from "leaflet";
+import { KeyNeeded } from "./markers/KeyNeededMarker";
+import { KeyMaker } from "./markers/KeyMaker";
+import { CodeNeeded } from "./markers/CodeNeeded";
+import { Code } from "./markers/Code";
+import { RegularMarker } from "./markers/RegularMarker";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 export function ChangeView({ coords }) {
   const map = useMap();
@@ -19,27 +19,26 @@ export function ChangeView({ coords }) {
   return null;
 }
 
-const MarkerGR = L.Icon.extend({
-  options: {
+export function MarkerGR(fileString: string) {
+  return new L.Icon({
+    iconUrl: fileString,
     iconSize: [100, 100],
-    iconAnchor: [0, 0],
-    popupAnchor: [50, 50],
-  },
-});
+    iconAnchor: [50, 50],
+    popupAnchor: [0, 0],
+  }) as Icon;
+}
 
-const shinko = new MarkerGR({ iconUrl: "marker-icons/shinko.png" }),
-  letter = new MarkerGR({ iconUrl: "marker-icons/letter.png" }),
-  village = new MarkerGR({ iconUrl: "marker-icons/village_it.png" }),
-  place = new MarkerGR({ iconUrl: "place_it.png" }),
-  fercheval = new MarkerGR({ iconUrl: "fer_cheval.png" });
-
+// Giving restaurant type for Typescript
 type Props = {
-  restaurant: Restaurant;
+  restaurants: Restaurant[];
 };
 
-export default function Map({ restaurant }) {
-  const restaurantObject = restaurant as Restaurant[];
+export default function Map({ restaurants }: Props) {
+  const tasks = useSelector((state: RootState) => state.tasks);
 
+  if (tasks.completed) {
+    alert("You completed the game!");
+  }
   const [geoData, setGeoData] = useState({
     lat: 48.84211498289338,
     lng: 2.3219922799949586,
@@ -53,25 +52,12 @@ export default function Map({ restaurant }) {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {restaurantObject?.map((restaurant) => {
-        let restaurantNameParse = restaurant.name.split(" ").join("_");
-        let iconObject = new MarkerGR({
-          iconUrl: "marker-icons/" + restaurantNameParse + ".png",
-        });
 
-        return (
-          <Marker
-            position={[restaurant.coordinates[1], restaurant.coordinates[0]]}
-            icon={iconObject}
-          >
-            <Popup>
-              {restaurant.name}
-              <br />
-              {restaurant.hint}
-            </Popup>
-          </Marker>
-        );
-      })}
+      <KeyNeeded restaurant={restaurants[0]} />
+      <KeyMaker restaurant={restaurants[1]} />
+      <CodeNeeded restaurant={restaurants[2]} />
+      <Code restaurant={restaurants[3]} />
+      <RegularMarker restaurant={restaurants[4]} />
 
       <ChangeView coords={center} />
     </MapContainer>
