@@ -1,30 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  square1: false,
-  square2: false,
-  square3: false,
-  complete: false,
+  square1: null,
+  square2: null,
+  square3: null,
+  square4: null,
+  key: false,
+  completed: false,
 };
 
 const tasksSlice = createSlice({
   name: "tasks",
   initialState: initialState,
   reducers: {
-    toggleFill: (state) => {
+    toggleFill: (state, actions) => {
       //Should find more elegant way of doing it than this
       if (!state.square1) {
-        state.square1 = true;
+        state.square1 = actions.payload;
       } else if (!state.square2) {
-        state.square2 = true;
+        state.square2 = actions.payload;
       } else if (!state.square3) {
-        state.square3 = true;
+        state.square3 = actions.payload;
       } else {
-        state.complete = true;
+        state.square4 = actions.payload;
+        state.completed = true;
       }
+    },
+    toggleKey: (state) => {
+      state.key = true;
     },
   },
 });
 
-export const { toggleFill } = tasksSlice.actions;
+export const { toggleFill, toggleKey } = tasksSlice.actions;
 export default tasksSlice.reducer;

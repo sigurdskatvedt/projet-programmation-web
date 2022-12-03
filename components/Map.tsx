@@ -1,24 +1,16 @@
 "use client";
-import {
-  useState,
-  useEffect,
-  ForwardRefExoticComponent,
-  RefAttributes,
-} from "react";
+import { useState } from "react";
 import "leaflet/dist/leaflet.css";
-import {
-  MapContainer,
-  TileLayer,
-  useMap,
-  useMapEvents,
-  Popup,
-  useMapEvent,
-  MarkerProps,
-} from "react-leaflet";
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import { Restaurant } from "../types";
 import L, { Icon } from "leaflet";
-import { useStyleRegistry } from "styled-jsx";
-import { KeyNeeded } from "./markers/KeyNeeded";
+import { KeyNeeded } from "./markers/KeyNeededMarker";
+import { KeyMaker } from "./markers/KeyMaker";
+import { CodeNeeded } from "./markers/CodeNeeded";
+import { Code } from "./markers/Code";
+import { RegularMarker } from "./markers/RegularMarker";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 export function ChangeView({ coords }) {
   const map = useMap();
@@ -36,14 +28,17 @@ export function MarkerGR(fileString: string) {
   }) as Icon;
 }
 
-// var shelter1 = L.marker([55.08, 11.62], {icon: shelterIcon});
-
 // Giving restaurant type for Typescript
 type Props = {
   restaurants: Restaurant[];
 };
 
 export default function Map({ restaurants }: Props) {
+  const tasks = useSelector((state: RootState) => state.tasks);
+
+  if (tasks.completed) {
+    alert("You completed the game!");
+  }
   const [geoData, setGeoData] = useState({
     lat: 48.84211498289338,
     lng: 2.3219922799949586,
@@ -58,9 +53,11 @@ export default function Map({ restaurants }: Props) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {restaurants?.map((restaurant, index) => {
-        return <KeyNeeded restaurant={restaurant} key={index} />;
-      })}
+      <KeyNeeded restaurant={restaurants[0]} />
+      <KeyMaker restaurant={restaurants[1]} />
+      <CodeNeeded restaurant={restaurants[2]} />
+      <Code restaurant={restaurants[3]} />
+      <RegularMarker restaurant={restaurants[4]} />
 
       <ChangeView coords={center} />
     </MapContainer>

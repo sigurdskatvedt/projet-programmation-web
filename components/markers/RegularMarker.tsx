@@ -1,7 +1,8 @@
 "use client";
-import L, { Icon } from "leaflet";
 import { useState } from "react";
 import { Marker, Popup, useMapEvents } from "react-leaflet";
+import { useDispatch } from "react-redux";
+import { toggleFill } from "../../redux/slices/tasksSlice";
 import { Restaurant } from "../../types";
 import { MarkerGR } from "../Map";
 
@@ -9,13 +10,18 @@ type Props = {
   restaurant: Restaurant;
 };
 
-export function KeyNeeded({ restaurant }: Props) {
+export function RegularMarker({ restaurant }: Props) {
   const [zoomLevel, setZoomLevel] = useState(5);
   const [pressed, setPressed] = useState(false);
+  const dispatch = useDispatch();
+
+  let restaurantNameParse =
+    "/marker-icons/" + restaurant.name.split(" ").join("_") + ".png";
 
   function handleClick(e) {
     e.preventDefault();
     setPressed(true);
+    dispatch(toggleFill(restaurantNameParse));
   }
 
   const mapEvents = useMapEvents({
@@ -24,10 +30,7 @@ export function KeyNeeded({ restaurant }: Props) {
       setZoomLevel(mapEvents.getZoom());
     },
   });
-  let restaurantNameParse = restaurant.name.split(" ").join("_");
-  let iconObject = MarkerGR(
-    "marker-icons/" + restaurantNameParse + ".png"
-  ) as Icon;
+  let iconObject = MarkerGR(restaurantNameParse);
 
   return (
     <>

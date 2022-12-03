@@ -11,19 +11,16 @@ import { RootState } from "../../redux/store";
 export default function BottComp() {
   const tasks = useSelector((state: RootState) => state.tasks);
 
-  const squareArray = [];
-  for (let i = 1; i <= 4; i++) {
-    squareArray.push(<Square idNumber={`square${i}`} key={i} />);
-  }
-
   return (
     <div className="bottom">
-      {squareArray}
+      <Square idNumber="square1" key={1} value={tasks.square1} />
+      <Square idNumber="square2" key={2} value={tasks.square2} />
+      <Square idNumber="square3" key={3} value={tasks.square3} />
+      <Square idNumber="square4" key={4} value={tasks.square4} />
       <Score />
       <Username />
       <ButtonOk />
       <Rectang idNumber={"rectangle10"} />
-      <>{console.log(tasks.square1)}</>
     </div>
   );
 }
