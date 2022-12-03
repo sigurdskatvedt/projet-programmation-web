@@ -30,7 +30,7 @@ export default async function Home() {
       </Head>
       <div className="h-auto">
         <TopComp />
-        <Map restaurant={restaurants} />
+        <Map restaurants={restaurants} />
         <BottComp />
       </div>
     </div>
