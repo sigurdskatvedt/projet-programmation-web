@@ -65,8 +65,7 @@ export default function Map({ restaurants }: Props) {
         sendFunc();
       }
     }, []); */
-
-    tasks.scoreRef.stop();
+    alert("Le jeu est terminé.");
   }
   const [geoData, setGeoData] = useState({
     lat: 48.84211498289338,

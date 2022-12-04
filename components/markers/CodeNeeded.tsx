@@ -46,11 +46,16 @@ export function CodeNeeded({ restaurant }: Props) {
             icon={iconObject}
           >
             <Popup>
-              {restaurant.name}
+              <h1 className="">{restaurant.name}</h1>
               <br />
-              {restaurant.hint}
-              <input onChange={(e) => setCode(e.target.value)}></input>
-              <button onClick={handleClick}>OK</button>
+              <p>{restaurant.hint}</p>
+              <input
+                className="block border-solid border-2 "
+                onChange={(e) => setCode(e.target.value)}
+              ></input>
+              <button className="block text-blue-900" onClick={handleClick}>
+                OK
+              </button>
             </Popup>
           </Marker>
         )

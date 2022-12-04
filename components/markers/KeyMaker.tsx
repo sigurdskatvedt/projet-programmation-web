@@ -6,6 +6,7 @@ import { toggleFill, toggleKey } from "../../redux/slices/tasksSlice";
 import { RootState } from "../../redux/store";
 import { Restaurant } from "../../types";
 import { MarkerGR } from "../Map";
+import MarkerCommon from "./MarkerCommon";
 
 type Props = {
   restaurant: Restaurant;
@@ -37,21 +38,11 @@ export function KeyMaker({ restaurant }: Props) {
 
   return (
     <>
-      {zoomLevel >= 16 ? (
-        keyPressed ? null : (
-          <Marker
-            position={[restaurant.coordinates[1], restaurant.coordinates[0]]}
-            icon={iconObject}
-          >
-            <Popup>
-              {restaurant.name}
-              <br />
-              {restaurant.hint}
-              <button onClick={handleClick}>OK</button>
-            </Popup>
-          </Marker>
-        )
-      ) : null}
+      {zoomLevel >= 16
+        ? keyPressed
+          ? null
+          : MarkerCommon(restaurant, iconObject, handleClick)
+        : null}
     </>
   );
 }

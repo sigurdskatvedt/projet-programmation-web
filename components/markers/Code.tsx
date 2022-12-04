@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { toggleFill } from "../../redux/slices/tasksSlice";
 import { Restaurant } from "../../types";
 import { MarkerGR } from "../Map";
+import MarkerCommon from "./MarkerCommon";
 
 type Props = {
   restaurant: Restaurant;
@@ -32,21 +33,11 @@ export function Code({ restaurant }: Props) {
 
   return (
     <>
-      {zoomLevel <= 16 ? (
-        codePressed ? null : (
-          <Marker
-            position={[restaurant.coordinates[1], restaurant.coordinates[0]]}
-            icon={iconObject}
-          >
-            <Popup>
-              {restaurant.name}
-              <br />
-              {restaurant.hint}
-              <button onClick={handleClick}>OK</button>
-            </Popup>
-          </Marker>
-        )
-      ) : null}
+      {zoomLevel <= 16
+        ? codePressed
+          ? null
+          : MarkerCommon(restaurant, iconObject, handleClick)
+        : null}
     </>
   );
 }
