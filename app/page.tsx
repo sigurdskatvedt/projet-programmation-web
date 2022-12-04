@@ -25,7 +25,7 @@ export default async function Home() {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>GeoResto</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="h-auto">

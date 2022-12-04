@@ -62,6 +62,19 @@ ALTER SEQUENCE public.restaurants_id_seq OWNED BY public.restaurants.id;
 
 
 --
+-- Name: scores; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.scores (
+    id text NOT NULL,
+    name text,
+    score integer
+);
+
+
+ALTER TABLE public.scores OWNER TO postgres;
+
+--
 -- Name: restaurants id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -82,6 +95,14 @@ COPY public.restaurants (id, wkb_geometry, image_id, name, lvl_zoom, type_object
 
 
 --
+-- Data for Name: scores; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.scores (id, name, score) FROM stdin;
+\.
+
+
+--
 -- Name: restaurants_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -94,6 +115,14 @@ SELECT pg_catalog.setval('public.restaurants_id_seq', 5, true);
 
 ALTER TABLE ONLY public.restaurants
     ADD CONSTRAINT restaurants_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: scores scores_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.scores
+    ADD CONSTRAINT scores_pkey PRIMARY KEY (id);
 
 
 --

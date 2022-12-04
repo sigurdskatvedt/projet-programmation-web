@@ -51,7 +51,8 @@ export default function Map({ restaurants }: Props) {
   const [createScore, setCreateScore] = useState(null);
 
   if (tasks.completed) {
-    useEffect(() => {
+    //This does not work
+    /* useEffect(() => {
       async function sendFunc() {
         const { createScore } = await graphqlClient.request(NewScoreDocument, {
           name: tasks.name as string,
@@ -63,7 +64,9 @@ export default function Map({ restaurants }: Props) {
       if (!createScore) {
         sendFunc();
       }
-    }, []);
+    }, []); */
+
+    tasks.scoreRef.stop();
   }
   const [geoData, setGeoData] = useState({
     lat: 48.84211498289338,
@@ -91,7 +94,9 @@ export default function Map({ restaurants }: Props) {
         </MapContainer>
       ) : (
         <div className="h-screen">
-          <h1>Not started</h1>
+          <h1 className="fond-bold content-center text-3xl">
+            Entrez votre nom et appuyez sur OK pour commencer.
+          </h1>
         </div>
       )}
     </>
