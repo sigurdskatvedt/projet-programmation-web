@@ -1,15 +1,16 @@
 "use client";
 import "./layoutstyle.css";
 import Square from "./square";
-import Score from "./score";
-import Username from "./username";
 import Rectang from "./rect";
-import ButtonOk from "./button";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
+import { toggleStarted } from "../../redux/slices/tasksSlice";
+import { useState } from "react";
 
 export default function BottComp() {
+  const [nameForChange, setNameForChange] = useState(null);
   const tasks = useSelector((state: RootState) => state.tasks);
+  const dispatch = useDispatch();
 
   return (
     <div className="bottom">
@@ -17,10 +18,20 @@ export default function BottComp() {
       <Square idNumber="square2" key={2} value={tasks.square2} />
       <Square idNumber="square3" key={3} value={tasks.square3} />
       <Square idNumber="square4" key={4} value={tasks.square4} />
-      <Score />
-      <Username />
-      <ButtonOk />
-      <Rectang idNumber={"rectangle10"} />
+      <h1 className="score">Score :</h1>
+      <h1 className="username">username :</h1>
+      <input
+        className="rectangle"
+        id="rectangle10"
+        type="text"
+        onChange={(e) => setNameForChange(e.target.value)}
+      />
+      <button
+        className="okk"
+        onClick={(e) => dispatch(toggleStarted(nameForChange))}
+      >
+        OK
+      </button>
     </div>
   );
 }

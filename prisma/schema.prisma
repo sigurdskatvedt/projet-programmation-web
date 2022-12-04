@@ -22,3 +22,9 @@ model restaurants {
   hint         String? @db.VarChar
   coordinates  Float[]
 }
+
+model scores {
+  id    String  @id @default(uuid())
+  name  String?
+  score Int?
+}

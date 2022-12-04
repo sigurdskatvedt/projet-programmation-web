@@ -7,6 +7,9 @@ const initialState = {
   square4: null,
   key: false,
   completed: false,
+  name: null,
+  started: false,
+  score: 5000,
 };
 
 const tasksSlice = createSlice({
@@ -29,8 +32,12 @@ const tasksSlice = createSlice({
     toggleKey: (state) => {
       state.key = true;
     },
+    toggleStarted: (state, actions) => {
+      state.started = true;
+      state.name = actions.payload;
+    },
   },
 });
 
-export const { toggleFill, toggleKey } = tasksSlice.actions;
+export const { toggleFill, toggleKey, toggleStarted } = tasksSlice.actions;
 export default tasksSlice.reducer;

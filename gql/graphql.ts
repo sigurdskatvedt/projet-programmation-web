@@ -18,13 +18,22 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  /** A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
-  Date: any;
+};
+
+export type Mutation = {
+  __typename?: "Mutation";
+  createScore: Scores;
+};
+
+export type MutationCreateScoreArgs = {
+  name: Scalars["String"];
+  score: Scalars["Int"];
 };
 
 export type Query = {
   __typename?: "Query";
   restaurants: Array<Restaurants>;
+  scores: Array<Scores>;
 };
 
 export type Restaurants = {
@@ -38,6 +47,13 @@ export type Restaurants = {
   type_object: Scalars["String"];
 };
 
+export type Scores = {
+  __typename?: "scores";
+  id: Scalars["ID"];
+  name: Scalars["String"];
+  score: Scalars["Int"];
+};
+
 export type GetMarkersQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetMarkersQuery = {
@@ -49,6 +65,16 @@ export type GetMarkersQuery = {
     lvl_zoom: number;
     hint: string;
   }>;
+};
+
+export type MyMutationMutationVariables = Exact<{
+  name: Scalars["String"];
+  score: Scalars["Int"];
+}>;
+
+export type MyMutationMutation = {
+  __typename?: "Mutation";
+  createScore: { __typename?: "scores"; name: string; score: number };
 };
 
 export const GetMarkersDocument = {
@@ -79,3 +105,71 @@ export const GetMarkersDocument = {
     },
   ],
 } as unknown as DocumentNode<GetMarkersQuery, GetMarkersQueryVariables>;
+export const MyMutationDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "mutation",
+      name: { kind: "Name", value: "MyMutation" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "name" } },
+          type: {
+            kind: "NonNullType",
+            type: {
+              kind: "NamedType",
+              name: { kind: "Name", value: "String" },
+            },
+          },
+        },
+        {
+          kind: "VariableDefinition",
+          variable: {
+            kind: "Variable",
+            name: { kind: "Name", value: "score" },
+          },
+          type: {
+            kind: "NonNullType",
+            type: { kind: "NamedType", name: { kind: "Name", value: "Int" } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "createScore" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "name" },
+                value: {
+                  kind: "Variable",
+                  name: { kind: "Name", value: "name" },
+                },
+              },
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "score" },
+                value: {
+                  kind: "Variable",
+                  name: { kind: "Name", value: "score" },
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "name" } },
+                { kind: "Field", name: { kind: "Name", value: "score" } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<MyMutationMutation, MyMutationMutationVariables>;

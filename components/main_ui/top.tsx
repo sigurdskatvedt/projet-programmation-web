@@ -1,15 +1,19 @@
 import "./layoutstyle.css";
-import GeoR from "./georesto";
 import Rectang from "./rect";
-import BestPlayers from "./best_players";
-import CrownImage from "./crown_image";
+import Image from "next/image";
 
 export default function TopComp() {
   return (
     <div className="top">
-      <GeoR />
-      <CrownImage />
-      <BestPlayers />
+      <h1 className="georesto">GeoResto</h1>
+      <Image
+        className="crownn"
+        src="/marker-icons/crown.png"
+        alt="Picture of a crown"
+        width="64"
+        height="64"
+      />
+      <h1 className="bestp">Best players</h1>
       <Rectang idNumber={"rectangle1"} />
       <Rectang idNumber={"rectangle2"} />
       <Rectang idNumber={"rectangle3"} />
