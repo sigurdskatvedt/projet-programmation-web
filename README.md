@@ -45,9 +45,7 @@ const GetAllUsersDocument = graphql(/* GraphQL */ `
 ```
 
 ### General idea of the game
-- All the following points are of course open to discussion.
-- The name of the game will be GeoResto.
-- It's general goal will be to access various restaurants in Paris (which I have personally tried).
+- It's general goal will be to access various restaurants in Paris.
 - The game is going to load all the restaurants at the loading of the page, the most obvious and accessible will be Shinko, located near Opera (and whose geographical coordinates are given by Maps as it will be the case for all restaurants).
 - Shinko will be seen with little zoom, and requires an object "proof of reservation", located on the Montparnasse tower.
 - The second restaurant will be "The Village Terrazza" located in the south of Paris and which need a code to be opened and, as it is Italian, the hint is to go to the 
